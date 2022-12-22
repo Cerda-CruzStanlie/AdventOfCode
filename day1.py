@@ -4,7 +4,7 @@
 with open('day1.in') as file:
     data = [i for i in file.read().strip().split('\n')]
 
-# Traversing every STRING in our DATA
+# Traversing string in data
 x = 0
 i = 0
 calories = 0
@@ -24,16 +24,31 @@ for item in data:
         elves.append(count)
         elves.append(calories)
 
-print(elves)
-
 #Max Calories
-max = max(elves)
-print(max)
+print('The max calories are held by elve number ' + str(elves[elves.index(max(elves))-1]) + ', which is:\n' + str(max(elves)))
 
 #Removes elve count then organizes
 for item in elves:
     if item <= count:
         elves.remove(item)
-elves.sort(*)
+elves.sort()
+print('\nThe decending order of calories is:')
 print(elves)
 
+top3 = [0,0,0]
+for item in elves:
+    if item > top3[0] and top3[1] >= top3[0] and top3[2] >= top3[0]:
+        top3[0] = item
+        continue
+    if item > top3[1] and top3[0] >= top3[1] and top3[2] >= top3[1]:
+        top3[1] = item
+        continue
+    if item > top3[2] and top3[1] >= top3[2] and top3[0] >= top3[2]:
+        top3[2] = item
+        continue
+print('\nThe top 3 amount of calories collected are:')
+print(top3)
+
+print('\nThe top 3 total amount of calories collected are:')
+totalTop3=sum(top3)
+print(totalTop3)
